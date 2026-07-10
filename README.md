@@ -251,7 +251,7 @@ docker compose up -d
 
 ---
 
-# 👨‍💻 Author
+# Author
 
 **Mohamed Alaa**
 
