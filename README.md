@@ -1,4 +1,4 @@
-# 🥇 Gold Price Data Engineering Pipeline
+#  Gold Price Data Engineering Pipeline
 
 An end-to-end **Data Engineering Pipeline** that collects both **real-time** and **historical** gold price data, processes it using **Apache Spark**, orchestrates workflows with **Apache Airflow**, transforms data with **dbt**, and builds an analytical **Data Warehouse** on **Azure Databricks**.
 
@@ -6,23 +6,23 @@ The final curated data is visualized through an interactive **Power BI Dashboard
 
 ---
 
-# 📖 Project Overview
+#  Project Overview
 
 This project demonstrates a complete modern **Data Engineering Architecture** following the **Medallion Architecture (Raw → Silver → Warehouse)**.
 
 The pipeline continuously:
 
-- 📡 Fetches live gold prices from an external API.
-- 🚀 Streams data using Apache Kafka.
-- 💾 Stores raw data in Azure Data Lake Storage Gen2.
-- ⚙️ Processes and cleans data using Apache Spark.
-- 🏗️ Builds dimensional models using dbt.
-- 📊 Loads the analytical warehouse into Azure Databricks.
-- 📈 Visualizes insights using Power BI.
+-  Fetches live gold prices from an external API.
+-  Streams data using Apache Kafka.
+-  Stores raw data in Azure Data Lake Storage Gen2.
+-  Processes and cleans data using Apache Spark.
+-  Builds dimensional models using dbt.
+-  Loads the analytical warehouse into Azure Databricks.
+-  Visualizes insights using Power BI.
 
 ---
 
-# 🏛 Architecture
+#  Architecture
 
 ```text
                 Gold Price API
@@ -57,7 +57,7 @@ The pipeline continuously:
 
 ---
 
-# 🛠 Technologies Used
+#  Technologies Used
 
 | Category | Technologies |
 |----------|--------------|
@@ -74,7 +74,7 @@ The pipeline continuously:
 
 ---
 
-# 📁 Project Structure
+#  Project Structure
 
 ```text
 DEPI_PROJECT
@@ -108,23 +108,23 @@ DEPI_PROJECT
 
 ---
 
-# ⚙️ Pipeline Workflow
+#  Pipeline Workflow
 
-## 🚀 Kafka Producer
+##  Kafka Producer
 
 - Fetches live gold prices from the Gold Price API.
 - Publishes JSON messages to a Kafka Topic.
 
 ---
 
-## 📥 Kafka Consumer
+##  Kafka Consumer
 
 - Consumes Kafka messages.
 - Writes each record into the Azure Data Lake Raw Layer.
 
 ---
 
-## ⚡ Apache Spark ETL
+##  Apache Spark ETL
 
 The Spark pipeline performs the following tasks:
 
@@ -138,7 +138,7 @@ The Spark pipeline performs the following tasks:
 
 ---
 
-## 🔄 dbt
+##  dbt
 
 Transforms the Silver Layer into an analytical **Star Schema**.
 
@@ -152,7 +152,7 @@ Transforms the Silver Layer into an analytical **Star Schema**.
 
 ---
 
-## ⏰ Apache Airflow
+##  Apache Airflow
 
 Airflow orchestrates the complete pipeline every hour.
 
@@ -177,14 +177,14 @@ Finish
 
 ---
 
-# ☁️ Azure Services
+#  Azure Services
 
 - Azure Data Lake Storage Gen2
 - Azure Databricks SQL Warehouse
 
 ---
 
-# 🏗 Data Warehouse Schema
+#  Data Warehouse Schema
 
 ## Fact Table
 
@@ -198,21 +198,21 @@ Finish
 
 ---
 
-# 📊 Power BI Dashboard
+#  Power BI Dashboard
 
 The dashboard provides:
 
-- 📌 Current Gold Price
-- 📈 Historical Price Trend
-- 📅 Daily Price Movement
-- 📊 Monthly Average
-- 📉 Quarterly Analysis
-- 💱 Currency Analysis
-- 📍 KPI Cards
+-  Current Gold Price
+-  Historical Price Trend
+-  Daily Price Movement
+-  Monthly Average
+-  Quarterly Analysis
+-  Currency Analysis
+-  KPI Cards
 
 ---
 
-# 🐳 Docker Services
+#  Docker Services
 
 The project runs the following services:
 
@@ -229,7 +229,7 @@ The project runs the following services:
 
 ---
 
-# 🚀 Run the Project
+#  Run the Project
 
 ## 1️⃣ Clone the Repository
 
@@ -253,11 +253,11 @@ docker compose up -d
 
 # 👨‍💻 Author
 
-**Sayed Ramy**
+**Mohamed Alaa**
 
-**Data Engineer | Data Analyst**
+**Data Analytics Engineer**
 
-GitHub: https://github.com/SayedR12
+GitHub: github.com/mohamedalaa-99
 
 ---
 
