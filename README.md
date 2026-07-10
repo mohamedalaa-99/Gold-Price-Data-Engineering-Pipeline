@@ -1,6 +1,9 @@
 # Gold-Price-Data-Engineering-Pipeline
 An end-to-end Data Engineering pipeline that collects real-time and historical gold price data, processes it using Apache Spark, orchestrates workflows with Apache Airflow, transforms data with dbt, and builds an analytical Data Warehouse on Azure Databricks.
 
+*****
+
+
 Project Overview
 This project demonstrates a complete modern Data Engineering architecture.
 
