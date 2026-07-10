@@ -1,0 +1,62 @@
+FROM apache/airflow:2.10.0
+
+#########################################
+# ROOT
+#########################################
+
+USER root
+
+RUN apt-get update && \
+    apt-get install -y \
+    openjdk-17-jdk \
+    wget \
+    curl \
+    unzip && \
+    apt-get clean
+
+#########################################
+# JAVA
+#########################################
+
+ENV JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+
+
+#########################################
+# SWITCH TO AIRFLOW USER
+#########################################
+
+USER airflow
+
+RUN python -m pip install --no-cache-dir \
+    pyspark==3.5.1 \
+    delta-spark==3.2.0 \
+    dbt-core==1.11.8 \
+    dbt-databricks==1.11.8 \
+    kafka-python \
+    requests \
+    azure-storage-file-datalake \
+    azure-identity
+#########################################
+# BACK TO ROOT
+#########################################
+
+USER root
+
+#########################################
+# AZURE + DELTA JARS
+#########################################
+
+RUN wget -P /opt/spark/jars https://repo1.maven.org/maven2/org/apache/hadoop/hadoop-azure/3.3.4/hadoop-azure-3.3.4.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/com/azure/azure-storage-blob/12.25.0/azure-storage-blob-12.25.0.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/com/azure/azure-storage-common/12.24.0/azure-storage-common-12.24.0.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/com/azure/azure-core/1.49.0/azure-core-1.49.0.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/com/azure/azure-core-http-netty/1.15.0/azure-core-http-netty-1.15.0.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/com/azure/azure-identity/1.11.3/azure-identity-1.11.3.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/io/delta/delta-spark_2.12/3.2.0/delta-spark_2.12-3.2.0.jar && \
+    wget -P /opt/spark/jars https://repo1.maven.org/maven2/io/delta/delta-storage/3.2.0/delta-storage-3.2.0.jar
+
+#########################################
+# FINAL USER
+#########################################
+
+USER airflow
