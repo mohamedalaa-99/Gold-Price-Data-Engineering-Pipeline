@@ -1,0 +1,44 @@
+dbt_olympic:
+  outputs:
+    dev:
+      path: dev.duckdb
+      threads: 1
+      type: duckdb
+    prod:
+      path: prod.duckdb
+      threads: 4
+      type: duckdb
+  target: dev
+gold_price_dbt:
+  outputs:
+    dev:
+      catalog: databricks_workspace
+      host: adb-7405612530831288.8.azuredatabricks.net
+      http_path: /sql/1.0/warehouses/0cc01a3ec41cbdb4
+      schema: gold_layer
+      threads: 1
+      token: dapidc713a083e48b3a2340a34dc74f83cb6
+      type: databricks
+  target: dev
+task_dbt:
+  outputs:
+    dev:
+      path: dev.duckdb
+      threads: 1
+      type: duckdb
+    prod:
+      path: prod.duckdb
+      threads: 4
+      type: duckdb
+  target: dev
+task_project:
+  outputs:
+    dev:
+      path: dev.duckdb
+      threads: 1
+      type: duckdb
+    prod:
+      path: prod.duckdb
+      threads: 4
+      type: duckdb
+  target: dev
