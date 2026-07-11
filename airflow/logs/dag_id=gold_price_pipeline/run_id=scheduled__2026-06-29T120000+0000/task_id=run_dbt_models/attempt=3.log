@@ -1,0 +1,55 @@
+[2026-06-29T14:13:35.998+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-06-29T14:13:36.015+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_price_pipeline.run_dbt_models scheduled__2026-06-29T12:00:00+00:00 [queued]>
+[2026-06-29T14:13:36.024+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_price_pipeline.run_dbt_models scheduled__2026-06-29T12:00:00+00:00 [queued]>
+[2026-06-29T14:13:36.026+0000] {taskinstance.py:2856} INFO - Starting attempt 3 of 3
+[2026-06-29T14:13:36.039+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): run_dbt_models> on 2026-06-29 12:00:00+00:00
+[2026-06-29T14:13:36.047+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=209) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-29T14:13:36.046+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'gold_price_pipeline', 'run_dbt_models', 'scheduled__2026-06-29T12:00:00+00:00', '--job-id', '46', '--raw', '--subdir', 'DAGS_FOLDER/gold_pipeline.py', '--cfg-path', '/tmp/tmpdokdeeis']
+[2026-06-29T14:13:36.049+0000] {standard_task_runner.py:72} INFO - Started process 210 to run task
+[2026-06-29T14:13:36.050+0000] {standard_task_runner.py:105} INFO - Job 46: Subtask run_dbt_models
+[2026-06-29T14:13:36.127+0000] {task_command.py:467} INFO - Running <TaskInstance: gold_price_pipeline.run_dbt_models scheduled__2026-06-29T12:00:00+00:00 [running]> on host 3828c1b309b8
+[2026-06-29T14:13:36.320+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Sayed' AIRFLOW_CTX_DAG_ID='gold_price_pipeline' AIRFLOW_CTX_TASK_ID='run_dbt_models' AIRFLOW_CTX_EXECUTION_DATE='2026-06-29T12:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='3' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-29T12:00:00+00:00'
+[2026-06-29T14:13:36.325+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-06-29T14:13:36.359+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-29T14:13:36.361+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        cd /opt/***/gold_price_dbt &&         dbt run --profiles-dir /opt/***\n        ']
+[2026-06-29T14:13:36.378+0000] {subprocess.py:86} INFO - Output:
+[2026-06-29T14:13:39.302+0000] {subprocess.py:93} INFO - [0m14:13:39  Running with dbt=1.11.8
+[2026-06-29T14:13:40.269+0000] {subprocess.py:93} INFO - WARNING:thrift.transport.sslcompat:using legacy validation callback
+[2026-06-29T14:13:41.418+0000] {subprocess.py:93} INFO - [0m14:13:41  Registered adapter: databricks=1.11.8
+[2026-06-29T14:13:41.747+0000] {subprocess.py:93} INFO - [0m14:13:41  [[33mWARNING[0m]: Configuration paths exist in your dbt_project.yml file which do not apply to any resources.
+[2026-06-29T14:13:41.748+0000] {subprocess.py:93} INFO - There are 1 unused configuration paths:
+[2026-06-29T14:13:41.749+0000] {subprocess.py:93} INFO - - models.gold_price_dbt.example
+[2026-06-29T14:13:41.920+0000] {subprocess.py:93} INFO - [0m14:13:41  Found 5 models, 732 macros
+[2026-06-29T14:13:41.924+0000] {subprocess.py:93} INFO - [0m14:13:41
+[2026-06-29T14:13:41.925+0000] {subprocess.py:93} INFO - [0m14:13:41  Concurrency: 1 threads (target='dev')
+[2026-06-29T14:13:41.926+0000] {subprocess.py:93} INFO - [0m14:13:41
+[2026-06-29T14:23:36.291+0000] {timeout.py:68} ERROR - Process timed out, PID: 210
+[2026-06-29T14:23:36.297+0000] {subprocess.py:104} INFO - Sending SIGTERM signal to process group
+[2026-06-29T14:23:36.319+0000] {taskinstance.py:3301} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 762, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 733, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 406, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/bash.py", line 240, in execute
+    result = self.subprocess_hook.run_command(
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/hooks/subprocess.py", line 91, in run_command
+    for raw_line in iter(self.sub_process.stdout.readline, b""):
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/utils/timeout.py", line 69, in handle_timeout
+    raise AirflowTaskTimeout(self.error_message)
+airflow.exceptions.AirflowTaskTimeout: Timeout, PID: 210
+[2026-06-29T14:23:36.329+0000] {taskinstance.py:1225} INFO - Marking task as FAILED. dag_id=gold_price_pipeline, task_id=run_dbt_models, run_id=scheduled__2026-06-29T12:00:00+00:00, execution_date=20260629T120000, start_date=20260629T141336, end_date=20260629T142336
+[2026-06-29T14:23:36.346+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-06-29T14:23:36.399+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 2
+[2026-06-29T14:23:36.426+0000] {taskinstance.py:3891} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-06-29T14:23:36.434+0000] {local_task_job_runner.py:240} INFO - ::endgroup::

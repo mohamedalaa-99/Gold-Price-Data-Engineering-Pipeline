@@ -1,0 +1,26 @@
+[2026-06-28T23:44:39.727+0000] {local_task_job_runner.py:123} INFO - ::group::Pre task execution logs
+[2026-06-28T23:44:39.746+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: gold_price_pipeline.run_kafka_consumer scheduled__2026-06-28T22:00:00+00:00 [queued]>
+[2026-06-28T23:44:39.756+0000] {taskinstance.py:2603} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: gold_price_pipeline.run_kafka_consumer scheduled__2026-06-28T22:00:00+00:00 [queued]>
+[2026-06-28T23:44:39.757+0000] {taskinstance.py:2856} INFO - Starting attempt 1 of 3
+[2026-06-28T23:44:39.772+0000] {taskinstance.py:2879} INFO - Executing <Task(BashOperator): run_kafka_consumer> on 2026-06-28 22:00:00+00:00
+[2026-06-28T23:44:39.782+0000] {logging_mixin.py:190} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:70 DeprecationWarning: This process (pid=180) is multi-threaded, use of fork() may lead to deadlocks in the child.
+[2026-06-28T23:44:39.782+0000] {standard_task_runner.py:104} INFO - Running: ['***', 'tasks', 'run', 'gold_price_pipeline', 'run_kafka_consumer', 'scheduled__2026-06-28T22:00:00+00:00', '--job-id', '3', '--raw', '--subdir', 'DAGS_FOLDER/gold_pipeline.py', '--cfg-path', '/tmp/tmp9gv072po']
+[2026-06-28T23:44:39.785+0000] {standard_task_runner.py:72} INFO - Started process 181 to run task
+[2026-06-28T23:44:39.785+0000] {standard_task_runner.py:105} INFO - Job 3: Subtask run_kafka_consumer
+[2026-06-28T23:44:39.870+0000] {task_command.py:467} INFO - Running <TaskInstance: gold_price_pipeline.run_kafka_consumer scheduled__2026-06-28T22:00:00+00:00 [running]> on host 3828c1b309b8
+[2026-06-28T23:44:39.958+0000] {taskinstance.py:3122} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='Sayed' AIRFLOW_CTX_DAG_ID='gold_price_pipeline' AIRFLOW_CTX_TASK_ID='run_kafka_consumer' AIRFLOW_CTX_EXECUTION_DATE='2026-06-28T22:00:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2026-06-28T22:00:00+00:00'
+[2026-06-28T23:44:39.959+0000] {taskinstance.py:731} INFO - ::endgroup::
+[2026-06-28T23:44:39.978+0000] {subprocess.py:63} INFO - Tmp dir root location: /tmp
+[2026-06-28T23:44:39.980+0000] {subprocess.py:75} INFO - Running command: ['/usr/bin/bash', '-c', '\n        python /opt/***/kafka/Consumer.py\n        ']
+[2026-06-28T23:44:39.992+0000] {subprocess.py:86} INFO - Output:
+[2026-06-28T23:44:41.564+0000] {subprocess.py:93} INFO - /opt/***/kafka/Consumer.py:38: DeprecationWarning: value_deserializer does not implement kafka.serializer.Deserializer
+[2026-06-28T23:44:41.566+0000] {subprocess.py:93} INFO -   consumer = KafkaConsumer(
+[2026-06-28T23:45:41.586+0000] {subprocess.py:93} INFO - Connected To Azure Data Lake
+[2026-06-28T23:45:41.588+0000] {subprocess.py:93} INFO - Waiting For Kafka Message...
+[2026-06-28T23:45:41.590+0000] {subprocess.py:93} INFO - Consumer Finished Successfully
+[2026-06-28T23:45:41.703+0000] {subprocess.py:97} INFO - Command exited with return code 0
+[2026-06-28T23:45:41.733+0000] {taskinstance.py:340} INFO - ::group::Post task execution logs
+[2026-06-28T23:45:41.735+0000] {taskinstance.py:352} INFO - Marking task as SUCCESS. dag_id=gold_price_pipeline, task_id=run_kafka_consumer, run_id=scheduled__2026-06-28T22:00:00+00:00, execution_date=20260628T220000, start_date=20260628T234439, end_date=20260628T234541
+[2026-06-28T23:45:41.775+0000] {local_task_job_runner.py:261} INFO - Task exited with return code 0
+[2026-06-28T23:45:41.806+0000] {taskinstance.py:3891} INFO - 1 downstream tasks scheduled from follow-on schedule check
+[2026-06-28T23:45:41.809+0000] {local_task_job_runner.py:240} INFO - ::endgroup::
