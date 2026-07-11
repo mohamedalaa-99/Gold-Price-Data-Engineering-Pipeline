@@ -1,0 +1,55 @@
+[0m17:07:26.890173 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'start', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74475a845040>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74475ae24230>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74475d017710>]}
+
+
+============================== 17:07:26.903282 | 10745330-66f0-45f3-8222-3e700f70fb4d ==============================
+[0m17:07:26.903282 [info ] [MainThread]: Running with dbt=1.11.11
+[0m17:07:26.906726 [debug] [MainThread]: running dbt with arguments {'version_check': 'True', 'write_json': 'True', 'fail_fast': 'False', 'log_path': 'logs', 'log_format': 'default', 'invocation_command': 'dbt debug --profiles-dir /opt/airflow', 'use_colors': 'True', 'partial_parse': 'True', 'no_print': 'None', 'introspect': 'True', 'profiles_dir': '/opt/airflow', 'printer_width': '80', 'quiet': 'False', 'static_parser': 'True', 'empty': 'None', 'warn_error': 'None', 'target_path': 'None', 'log_cache_events': 'False', 'use_experimental_parser': 'False', 'warn_error_options': 'WarnErrorOptionsV2(error=[], warn=[], silence=[])', 'cache_selected_only': 'False', 'indirect_selection': 'eager', 'send_anonymous_usage_stats': 'True', 'debug': 'False'}
+[0m17:07:26.929278 [info ] [MainThread]: dbt version: 1.11.11
+[0m17:07:26.931275 [info ] [MainThread]: python version: 3.12.5
+[0m17:07:26.933099 [info ] [MainThread]: python path: /home/airflow/.local/bin/python
+[0m17:07:26.935484 [info ] [MainThread]: os info: Linux-6.18.33.2-microsoft-standard-WSL2-x86_64-with-glibc2.36
+[0m17:07:26.950470 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.duckdb'
+[0m17:07:26.967995 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.databricks'
+[0m17:07:26.978709 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.duckdb'
+[0m17:07:26.985892 [info ] [MainThread]: Error importing adapter: No module named 'dbt.adapters.duckdb'
+[0m17:07:26.988746 [info ] [MainThread]: Using profiles dir at /opt/airflow
+[0m17:07:26.995242 [info ] [MainThread]: Using profiles.yml file at /opt/airflow/profiles.yml
+[0m17:07:27.002045 [info ] [MainThread]: Using dbt_project.yml file at /opt/airflow/dbt_project.yml
+[0m17:07:27.005751 [info ] [MainThread]: Configuration:
+[0m17:07:27.008819 [info ] [MainThread]:   profiles.yml file [[31mERROR invalid[0m]
+[0m17:07:27.010853 [info ] [MainThread]:   dbt_project.yml file [[31mERROR not found[0m]
+[0m17:07:27.015809 [info ] [MainThread]: Required dependencies:
+[0m17:07:27.018025 [debug] [MainThread]: Executing "git --help"
+[0m17:07:27.022879 [info ] [MainThread]:  - git [[31mERROR[0m]
+
+[0m17:07:27.025140 [info ] [MainThread]: Connection test skipped since no profile was found
+[0m17:07:27.028384 [info ] [MainThread]: [31m3 checks failed:[0m
+[0m17:07:27.034035 [info ] [MainThread]: Could not load dbt_project.yml
+Profile loading failed for the following reason:
+Runtime Error
+  Credentials in profile "dbt_olympic", target "dev" invalid: Runtime Error
+    Could not find adapter type duckdb!
+
+Runtime Error
+  Credentials in profile "gold_price_dbt", target "dev" invalid: Runtime Error
+    Could not find adapter type databricks!
+
+Runtime Error
+  Credentials in profile "task_dbt", target "dev" invalid: Runtime Error
+    Could not find adapter type duckdb!
+
+Runtime Error
+  Credentials in profile "task_project", target "dev" invalid: Runtime Error
+    Could not find adapter type duckdb!
+
+
+[0m17:07:27.036652 [info ] [MainThread]: Project loading failed for the following reason:
+ project path </opt/airflow/dbt_project.yml> not found
+
+[0m17:07:27.038937 [info ] [MainThread]: Error from git --help: User does not have permissions for this command: "git"
+
+[0m17:07:27.042196 [debug] [MainThread]: Resource report: {"command_name": "debug", "command_success": false, "command_wall_clock_time": 0.27733374, "process_in_blocks": "970", "process_kernel_time": 0.272658, "process_mem_max_rss": "109080", "process_out_blocks": "1968", "process_user_time": 3.877363}
+[0m17:07:27.044494 [debug] [MainThread]: Command `dbt debug` failed at 17:07:27.044186 after 0.28 seconds
+[0m17:07:27.046585 [debug] [MainThread]: Sending event: {'category': 'dbt', 'action': 'invocation', 'label': 'end', 'context': [<snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74475b2bfb00>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x744759d3e660>, <snowplow_tracker.self_describing_json.SelfDescribingJson object at 0x74475a5e6570>]}
+[0m17:07:27.050917 [debug] [MainThread]: Flushing usage events
+[0m17:07:27.931182 [debug] [MainThread]: An error was encountered while trying to flush usage events
